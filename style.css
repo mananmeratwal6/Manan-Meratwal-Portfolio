@@ -1,0 +1,420 @@
+@import url("https://use.typekit.net/jmk3xov.css");
+
+:root {
+  --accent: #7dd3fc;
+  --accent-glow: #38bdf8;
+  --text-main: #e0f2fe;
+  --text-muted: #94a3b8;
+  --highlight: #ffb347;
+  --dark-bg: #0b1120;
+  --medium-bg: #1c1f2b;
+  --card-bg: #1e293b;
+  --spacing: 300px;
+
+  font-family: brandon-grotesque, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(120deg, #0f2027, #4a148c, #006064);
+  color: var(--text-main);
+  overflow-x: hidden;
+  font-size: 1.1rem;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+main {
+  width: 100%;
+  padding: 120px 0;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+header {
+  grid-column: 2 / span 5;
+  background: rgba(15, 23, 42, 1);
+  padding: 2.5rem;
+  border-left: 6px solid var(--accent);
+  border-radius: 18px;
+  margin-bottom: var(--spacing);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.08),
+              0 8px 20px rgba(0, 0, 0, 0.5),
+              inset 0 0 10px rgba(56, 189, 248, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+header:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 40px #ff6f61;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #e0f2fe;
+  background: linear-gradient(90deg, #ff8a65, #f48fb1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: starlight 3s ease-in-out infinite alternate;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px rgba(56, 189, 248, 0.5);
+}
+
+@keyframes starlight {
+  0% {
+    text-shadow: 0 0 3px var(--accent), 0 0 6px var(--accent-glow);
+  }
+  100% {
+    text-shadow: 0 0 12px var(--accent), 0 0 24px var(--accent-glow);
+  }
+}
+
+h1, h2, h3, blockquote {
+  font-family: elevon, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #ffd54f;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+  color: #80cbc4;
+  margin-top: 1rem;
+}
+
+blockquote {
+  grid-column: 2 / span 9;
+  margin-bottom: var(--spacing);
+}
+
+blockquote p {
+  font-size: 2.0rem;
+  display: inline-block;
+  line-height: 1.3;
+  padding: 1rem 1.3rem;
+  border-radius: 12px;
+  color: #ffffff;
+  background: transparent;
+  border: 2px dashed #f48fb1;
+  animation: glowBorder 3s infinite ease-in-out;
+}
+
+@keyframes glowBorder {
+  0%, 100% {
+    box-shadow: 0 0 12px #f48fb1;
+  }
+  50% {
+    box-shadow: 0 0 30px #f48fb1;
+  }
+}
+
+section {
+  grid-column: 2 / 8;
+  padding: 2rem;
+  background: linear-gradient(135deg, #3f51b5, #2196f3);
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: var(--spacing);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #ffffff;
+}
+
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(255, 193, 7, 0.4);
+}
+
+.left {
+  grid-column: 6 / 12;
+}
+
+.light {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.light h2 {
+  color: #ffca28;
+}
+
+ul {
+  list-style-type: "✨ ";
+  padding-left: 1.2rem;
+}
+
+li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+a {
+  color: #4dd0e1;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px #00e5ff;
+}
+
+.contact ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.contact li {
+  margin-bottom: 0.6rem;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1200px) {
+  main {
+    padding: 100px 20px;
+    gap: 1rem;
+  }
+  
+  header, section, blockquote {
+    margin-bottom: calc(var(--spacing) * 0.7);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  main {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  
+  header {
+    grid-column: 1 / span 8;
+  }
+  
+  blockquote {
+    grid-column: 1 / span 8;
+  }
+  
+  section {
+    grid-column: 1 / span 8;
+  }
+  
+  .left {
+    grid-column: 1 / span 8;
+  }
+  
+  header h1 {
+    font-size: 2.2rem;
+  }
+  
+  blockquote p {
+    font-size: 1.7rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --spacing: 150px;
+  }
+  
+  main {
+    grid-template-columns: repeat(6, 1fr);
+    padding: 80px 15px;
+  }
+  
+  header, section, blockquote {
+    grid-column: 1 / span 6;
+    padding: 1.5rem;
+  }
+  
+  header h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.7rem;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+  }
+  
+  blockquote p {
+    font-size: 1.4rem;
+    padding: 0.8rem 1rem;
+  }
+  
+  section {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  
+  /* Improve readability on small screens */
+  body {
+    font-size: 1rem;
+  }
+  
+  /* Make contact links more accessible on mobile */
+  .contact li {
+    margin-bottom: 0.9rem;
+  }
+  
+  .contact a {
+    display: inline-block;
+    padding: 5px 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  :root {
+    --spacing: 100px;
+  }
+  
+  main {
+    grid-template-columns: 1fr;
+    padding: 60px 12px;
+  }
+  
+  header, section, blockquote {
+    grid-column: 1;
+    padding: 1.2rem;
+  }
+  
+  header h1 {
+    font-size: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.4rem;
+  }
+  
+  blockquote p {
+    font-size: 1.2rem;
+    line-height: 1.4;
+  }
+  
+  ul {
+    padding-left: 0.8rem;
+  }
+  
+  /* Stack header content for very small screens */
+  header h1, header h2 {
+    display: block;
+    text-align: center;
+  }
+  
+  /* Improve spacing */
+  section {
+    margin-bottom: calc(var(--spacing) * 0.8);
+  }
+}
+
+/* Make sure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Improve touch targets for mobile */
+@media (hover: none) and (pointer: coarse) {
+  a, button {
+    padding: 10px 0;
+    display: inline-block;
+  }
+  
+  li {
+    padding: 4px 0;
+  }
+}
+
+/* Additional smartphone optimizations */
+@media screen and (max-width: 480px) {
+  :root {
+    --spacing: 80px;
+  }
+  
+  main {
+    padding: 50px 10px;
+  }
+  
+  header, section, blockquote {
+    padding: 1rem;
+    margin-bottom: 60px;
+  }
+  
+  header h1 {
+    font-size: 1.3rem;
+  }
+  
+  h2 {
+    font-size: 1.2rem;
+  }
+  
+  h3 {
+    font-size: 1.1rem;
+  }
+  
+  /* Improve readability on very small screens */
+  section, blockquote p, li {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}
+
+/* Handle orientation changes better */
+@media screen and (max-height: 480px) and (orientation: landscape) {
+  main {
+    padding: 40px 15px;
+  }
+  
+  header, section, blockquote {
+    margin-bottom: 40px;
+    padding: 0.8rem;
+  }
+  
+  /* Better spacing in landscape */
+  section {
+    margin-bottom: 30px;
+  }
+  
+  /* Prevent content from being hidden behind canvas on landscape */
+  body {
+    min-height: 200vh;
+  }
+}
+
+/* Fix canvas performance */
+canvas {
+  touch-action: pan-y;
+}
+
+/* Make sure scrolling is smooth on mobile */
+html {
+  scroll-behavior: smooth;
+}
